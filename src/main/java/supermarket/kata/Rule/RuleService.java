@@ -12,11 +12,12 @@ import supermarket.kata.constant.Constant;
 import supermarket.kata.data.SpecialOfferDirectory;
 import supermarket.kata.model.Item;
 
+
 /**
  * This rule service get rule from rule factory and execute it Also filter
  * special offer deal based on effective date
  * 
- * @author devkoa1
+ * @author achyutdev
  *
  */
 public class RuleService {

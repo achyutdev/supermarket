@@ -4,7 +4,7 @@ import supermarket.kata.constant.RuleIDConstant;
 
 /**
  * 
- * @author devkoa1
+ * @author achyutdev
  *
  */
 public class RuleDTO {

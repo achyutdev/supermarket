@@ -6,7 +6,7 @@ import supermarket.kata.constant.Constant;
 
 /**
  * 
- * @author devkoa1
+ * @author achyutdev
  *
  */
 public interface IRule {

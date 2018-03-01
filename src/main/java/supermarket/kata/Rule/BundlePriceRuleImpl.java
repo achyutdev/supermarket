@@ -8,7 +8,7 @@ import supermarket.kata.model.Item;
 /**
  * This rule update price map of the items that are bundle together
  * 
- * @author devkoa1
+ * @author achyutdev
  *
  */
 @SuppressWarnings("unchecked")

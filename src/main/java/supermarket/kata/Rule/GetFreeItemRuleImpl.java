@@ -5,7 +5,7 @@ import java.util.Map;
 import supermarket.kata.constant.Constant;
 /**
  * 
- * @author devkoa1
+ * @author achyutdev
  *
  */
 public class GetFreeItemRuleImpl implements IRule {
