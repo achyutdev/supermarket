@@ -33,14 +33,14 @@ public class RuleServiceTest {
 	public void testFilterRuleWithDifferentEffectiveDate() {
 		List<RuleDTO> ruleList = new ArrayList<>();
 		ruleList.add(new RuleDTO(RuleIDConstant.BUNDLE_PRICE, "02/11/2018", "SOME_CUSTOM_VALUE1"));
-		ruleList.add(new RuleDTO(RuleIDConstant.GET_FREE_ITEM, "02/29/2018", "SOME_CUSTOM_VALUE2"));
+		ruleList.add(new RuleDTO(RuleIDConstant.GET_FREE_ITEM, "02/28/2019", "SOME_CUSTOM_VALUE2"));
 		List<RuleDTO> filteredList = ruleService.filterRuleList(ruleList);
 		assertEquals(1, filteredList.size(), 0.01);
 	}
 
 	@Test
 	public void testPassedDate() {
-		assertTrue(ruleService.isFuture("02/29/2018"));
+		assertTrue(ruleService.isFuture("02/28/2019"));
 		assertFalse(ruleService.isFuture("02/02/2018"));
 		assertFalse(ruleService.isFuture("WRONG_VALUE"));
 	}

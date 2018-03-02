@@ -12,7 +12,6 @@ import supermarket.kata.constant.Constant;
 import supermarket.kata.data.SpecialOfferDirectory;
 import supermarket.kata.model.Item;
 
-
 /**
  * This rule service get rule from rule factory and execute it Also filter
  * special offer deal based on effective date
@@ -40,11 +39,11 @@ public class RuleService {
 
 		List<RuleDTO> filteredRuleList = filterRuleList(ruleList);
 
-		for (Item item : shoppingCart.keySet()) {
-			calculatedPriceMap.put(item, shoppingCart.get(item) * item.getPrice());
-		}
+		shoppingCart.forEach((item, quantity) -> {
+			calculatedPriceMap.put(item, quantity * item.getPrice());
+		});
 
-		for (RuleDTO ruleDTO : filteredRuleList) {
+		filteredRuleList.forEach((ruleDTO) -> {
 			customParam = getCustomParam(ruleDTO);
 			cartObjectMap.put(Constant.CUSTOM_PARAMETERS, customParam);
 			cartObjectMap.put(Constant.SHOPPING_CART, shoppingCart);
@@ -56,7 +55,7 @@ public class RuleService {
 			} catch (Exception e) {
 				System.out.println("Rule Execute Error :\n RULE ID" + ruleDTO.getRuleId() + "\n" + e.getMessage());
 			}
-		}
+		});
 
 		return findTotalPrice(calculatedPriceMap);
 
@@ -64,15 +63,12 @@ public class RuleService {
 
 	/**
 	 * Calculate total price using priceMap
+	 * 
 	 * @param priceMap
 	 * @return
 	 */
 	private double findTotalPrice(Map<Item, Double> priceMap) {
-		double sum = 0;
-		for (Double price : priceMap.values()) {
-			sum += price;
-		}
-		return sum;
+		return priceMap.values().stream().mapToDouble(i -> i).sum();
 	}
 
 	/**
@@ -120,12 +116,13 @@ public class RuleService {
 	 * @return
 	 */
 	private List<RuleDTO> filterWithEffectiveDate(List<RuleDTO> ruleList) {
+
 		List<RuleDTO> tmpList = new ArrayList<>();
-		for (RuleDTO ruleDTO : ruleList) {
+		ruleList.forEach(ruleDTO -> {
 			if (isFuture(ruleDTO.getEffectiveDate())) {
 				tmpList.add(ruleDTO);
 			}
-		}
+		});
 		return tmpList;
 	}
 

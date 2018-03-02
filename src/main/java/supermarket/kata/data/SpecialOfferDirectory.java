@@ -15,7 +15,7 @@ import supermarket.kata.constant.RuleIDConstant;
 public class SpecialOfferDirectory {
 	public static List<RuleDTO> offers = new ArrayList<>();
 	static {
-		offers.add(new RuleDTO(RuleIDConstant.BUNDLE_PRICE, "03/26/2018", "itemName = A|quantity = 3|bundlePrice =130"));
-		offers.add(new RuleDTO(RuleIDConstant.BUNDLE_PRICE, "03/26/2018", "itemName = B|quantity = 2|bundlePrice =45"));
+		offers.add(new RuleDTO(RuleIDConstant.BUNDLE_PRICE, "03/26/2019", "itemName = A|quantity = 3|bundlePrice =130"));
+		offers.add(new RuleDTO(RuleIDConstant.BUNDLE_PRICE, "03/26/2019", "itemName = B|quantity = 2|bundlePrice =45"));
 	}
 }
